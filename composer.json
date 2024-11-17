@@ -1,0 +1,23 @@
+{
+    "name": "samjuk/m2-module-verbose-db-status",
+    "description": "",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "Sam James",
+            "email": "sam@samdjames.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.3"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SamJUK\\VerboseDBStatus\\": ""
+        }
+    }
+}
