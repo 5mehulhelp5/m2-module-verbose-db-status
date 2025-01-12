@@ -1,7 +1,8 @@
 {
     "name": "samjuk/m2-module-verbose-db-status",
-    "description": "",
+    "description": "Adds a verbose mode to the setup:db:status command, to assist with debugging DB schema differences",
     "type": "magento2-module",
+    "license": ["MIT"],
     "authors": [
         {
             "name": "Sam James",
@@ -10,7 +11,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.3"
+        "php": ">=7.3",
+        "magento/framework": "^103.0",
+        "ext-json": "*"
     },
     "autoload": {
         "files": [
