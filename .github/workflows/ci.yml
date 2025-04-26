@@ -57,11 +57,12 @@ jobs:
       - name: Run PHPCS
         run: docker exec magento-project-community-edition bash -c "vendor/bin/phpcs --standard=Magento2 --extensions=php,phtml -p extensions/${{ github.event.repository.name }} --severity=6"
 
+      - name: Code Compilation Test
+        run: docker exec magento-project-community-edition bash -c "php bin/magento setup:di:compile"
+
       - name: Run Unit Tests
         run: docker exec magento-project-community-edition bash -c "vendor/bin/phpunit extensions/${{ github.event.repository.name }}/Test/Unit"
 
-      - name: Code Compilation Test
-        run: docker exec magento-project-community-edition bash -c "php bin/magento setup:di:compile"
 
       - name: Run Integration Tests
         run: docker exec magento-project-community-edition bash -c "php bin/magento deploy:mode:set developer && cd /data/dev/tests/integration/ && ../../../vendor/bin/phpunit"

@@ -20,10 +20,7 @@ class OperationTargetTest extends TestCase
     public function setUp(): void
     {
         $this->verbosity = $this->createMock(Verbosity::class);
-        $this->operationChangeFactory = $this->getMockBuilder('\SamJUK\VerboseDBStatus\Model\OperationChangeFactory')
-            ->disableOriginalConstructor()
-            ->setMethods(['create'])
-            ->getMock();
+        $this->operationChangeFactory = $this->createMock('\SamJUK\VerboseDBStatus\Model\OperationChangeFactory');
         $this->operationChangeFactory->method('create')->willReturn(new OperationChange);
     }
 
@@ -56,7 +53,7 @@ class OperationTargetTest extends TestCase
     public function testGetTitleForTableOperation()
     {
         $table = $this->getTableDataElement('my_table');
-        
+
         $target = new OperationTarget($this->verbosity, $this->operationChangeFactory);
         $target->setOldData($table);
         $target->setNewData($table);
@@ -77,7 +74,7 @@ class OperationTargetTest extends TestCase
     public function testGetTitleForColumnOperation()
     {
         $column = $this->getColumnDataElement('entity_id', 'int');
-        
+
         $target = new OperationTarget($this->verbosity, $this->operationChangeFactory);
         $target->setOldData($column);
         $target->setNewData($column);
@@ -99,7 +96,7 @@ class OperationTargetTest extends TestCase
     public function testGetTitleForConstraintOperation()
     {
         $column = $this->getConstraintDataElement('MY_TABLE_ENTITY_ID_ATTRIBUTE_ID_STORE_ID', 'unique');
-        
+
         $target = new OperationTarget($this->verbosity, $this->operationChangeFactory);
         $target->setOldData($column);
         $target->setNewData($column);
@@ -121,7 +118,7 @@ class OperationTargetTest extends TestCase
     public function testGetTitleForIndexOperation()
     {
         $index = $this->getIndexDataElement('MY_TABLE_STORE_ID');
-        
+
         $target = new OperationTarget($this->verbosity, $this->operationChangeFactory);
         $target->setOldData($index);
         $target->setNewData($index);

@@ -26,8 +26,8 @@ while IFS= read -r VER; do
   docker exec magento-project-community-edition make -C ${MODULE_DIR} test-composer
   docker exec magento-project-community-edition make -C ${MODULE_DIR} test-phpstan
   docker exec magento-project-community-edition make -C ${MODULE_DIR} test-phpcs
-  docker exec magento-project-community-edition make -C ${MODULE_DIR} test-unit
   docker exec magento-project-community-edition make -C ${MODULE_DIR} test-compile
+  docker exec magento-project-community-edition make -C ${MODULE_DIR} test-unit
   # docker exec magento-project-community-edition make -C ${MODULE_DIR} test-integration
   docker rm -f magento-project-community-edition
 done <<< "${VERSIONS}"
