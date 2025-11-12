@@ -15,8 +15,7 @@ Example with the verbose flag set | Example with the extra verbose flag set
 ## Installation
 
 ```bash
-composer config repositories.samjuk-m2-module-verbose-db-status vcs git@github.com:SamJUK/m2-module-verbose-db-status.git
-composer require samjuk/m2-module-verbose-db-status:@dev
+composer require samjuk/m2-module-verbose-db-status
 php bin/magento module:enable SamJUK_VerboseDBStatus && php bin/magento cache:flush
 ```
 
