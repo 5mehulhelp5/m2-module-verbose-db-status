@@ -19,6 +19,10 @@ class OperationTargetTest extends TestCase
 
     public function setUp(): void
     {
+        if (!class_exists('\SamJUK\VerboseDBStatus\Model\OperationChangeFactory')) {
+            eval('namespace SamJUK\VerboseDBStatus\Model;class OperationChangeFactory {public function create() { return; }}');
+        }
+
         $this->verbosity = $this->createMock(Verbosity::class);
         $this->operationChangeFactory = $this->createMock('\SamJUK\VerboseDBStatus\Model\OperationChangeFactory');
         $this->operationChangeFactory->method('create')->willReturn(new OperationChange);
